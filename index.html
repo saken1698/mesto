@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MESTO</title>
+    <link rel="stylesheet" href="./page/index.css">
+  </head>
+  <body class="body">
+    <header class="header">
+      <img class="header__logo" src="./images/header/logo.svg" alt="логотип">
+    </header>
+    <main class="main">
+      <section class="profile">
+        <div class="profile__acc">
+          <img class="profile__avatar" src="./images/profile/avatar.jpg" alt="аватарка">
+          <div class="profile-id">
+            <div class="profile__info">
+              <h1 class="profile__info-name">Saken Alijanov</h1>
+              <p class="profile__info-discription">Countries wich i must visit</p>
+            </div>
+            <button type="button" class="profile__edit-button"></button>
+          </div>
+        </div>
+        <button class="profile__add-button" type="button"></button>
+      </section>
+      <section class="elements">
+        <div class="element">
+          <img class="element__image" src="./images/elements/france.jpg" alt="Франция">
+          <div class="element__dis">
+            <h2 class="element__dis-name">France</h2>
+            <button type="button" class="element__dis-like-button"></button>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__image" src="./images/elements/miami.jpg" alt="Майами">
+          <div class="element__dis">
+            <h2 class="element__dis-name">Maiami</h2>
+            <button type="button" class="element__dis-like-button"></button>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__image" src="./images/elements/brazil..jpg" alt="Бразилия">
+          <div class="element__dis">
+            <h2 class="element__dis-name">Brazil</h2>
+            <button type="button" class="element__dis-like-button"></button>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__image" src="./images/elements/canada.jpg" alt="Канада">
+          <div class="element__dis">
+            <h2 class="element__dis-name">Canada</h2>
+            <button type="button" class="element__dis-like-button"></button>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__image" src="./images/elements/UK.jpg" alt="Англия">
+          <div class="element__dis">
+            <h2 class="element__dis-name">UK</h2>
+            <button type="button" class="element__dis-like-button"></button>
+          </div>
+        </div>
+        <div class="element">
+          <img class="element__image" src="./images/elements/maldives.jpg" alt="Мальдивы">
+          <div class="element__dis">
+            <h2 class="element__dis-name">Maldives</h2>
+            <button type="button" class="element__dis-like-button"></button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&#169;2022 Mesto Russia</p>
+    </footer>
+    <div class="popup">
+      <form class="popup__container" name="acc-info" method="post">
+        <button class="popup__close-button" type="button"></button>    
+        <h2 class="popup__text">Редактировать профиль</h2>
+        <input class="popup__submit-name" placeholder="Имя" name="sub_name">
+        <input class="popup__submit-dis" placeholder="О себе" name="sub_dis">
+        <button type="submit" class="popup__save-button">Сохранить</button>
+      </form>
+    </div>
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>
