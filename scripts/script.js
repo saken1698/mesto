@@ -7,7 +7,12 @@ let inputDiscription = document.querySelector('.popup__submit-dis');
 let profileDiscription = document.querySelector('.profile__info-discription');
 let profileInfo = document.querySelectorAll('.profile__info');
 let saveForm = document.querySelector('.popup__container');
+let addImagePopup = document.querySelector('.profile__add-button');
 let popUp=document.querySelector('.popup');
+let popUpAdd=document.querySelector('.popup_add');
+let likeButton = document.querySelectorAll('.element__dis-like-button');
+let closePopupAddImage = document.getElementById('new_image_close');
+
 
 
 function editProfile(){
@@ -18,7 +23,9 @@ function editProfile(){
 };
 
 function closeModal(){
+    popUpAdd.classList.remove('popup_active');
     popUp.classList.remove('popup_active');
+
 }
 
 profileEditButton.addEventListener('click', editProfile);
@@ -31,11 +38,17 @@ function saveProfileChanges(evt){
     profileDiscription.textContent = inputDiscription.value;
 
     closeModal(); 
-}
+};
 
 saveForm.addEventListener('submit', saveProfileChanges);
 
 
+function addImage(){
+    popUpAdd.classList.add('popup_active');
+};
+
+addImagePopup.addEventListener('click', addImage);
+closePopupAddImage.addEventListener('click', closeModal);
 
 
 

@@ -1,5 +1,4 @@
-.popup{
-    
+.element__popup{
     position: fixed;
     background-color: rgba(0,0,0, 0.3);
     width: 100vw;
@@ -9,14 +8,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    z-index: 2;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s, opacity 0.3s linear;
-
-}
-
-@media screen and (max-width: 650px){
-    .popup{
-        width: 100%;
-    }
+    transition: visibility 0s, opacity 0.5s linear;
 }

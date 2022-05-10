@@ -9,8 +9,8 @@
 }
 
 .element__dis-like-button:hover{
- opacity: .5;
- transition: .2s;
+    opacity: .5;
+    transition: .2s;
 }
 
 @media screen and (max-width: 650px){   

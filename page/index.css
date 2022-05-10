@@ -19,12 +19,19 @@
 @import url('../blocks/profile/__acc/profile__acc.css');
 
 @import url('../blocks/elements/elements.css');
+@import url('../blocks/element/__popup/element__popup.css');
+@import url('../blocks/element/__popup/_active/element__popup_active.css');
 @import url('../blocks/element/element.css');
 @import url('../blocks/element/__image/element__image.css');
 @import url('../blocks/element/__dis/element__dis.css');
 @import url('../blocks/element/__dis-like-button/element__dis__like-button.css');
 @import url('../blocks/element/__dis-like-button/_active/element__dis-like-button_active.css');
 @import url('../blocks/element/__dis-name/element__dis-name.css');
+@import url('../blocks/element/__trash/element__trash.css');
+@import url('../blocks/element/__popup-image/element__popup-image.css');
+@import url('../blocks/element/__popup-text/element__popup-text.css');
+@import url('../blocks/element/__popup-container/element__popup-container.css');
+
 
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__copyright/footer__copyright.css');

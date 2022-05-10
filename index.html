@@ -25,8 +25,8 @@
         <button class="profile__add-button" type="button"></button>
       </section>
       <section class="elements">
-        <div class="element">
-          <img class="element__image" src="./images/elements/france.jpg" alt="Франция">
+        <!--<div class="element">
+          <img class="element__image" src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="Франция">
           <div class="element__dis">
             <h2 class="element__dis-name">France</h2>
             <button type="button" class="element__dis-like-button"></button>
@@ -66,7 +66,7 @@
             <h2 class="element__dis-name">Maldives</h2>
             <button type="button" class="element__dis-like-button"></button>
           </div>
-        </div>
+        </div>-->
       </section>
     </main>
     <footer class="footer">
@@ -81,6 +81,33 @@
         <button type="submit" class="popup__save-button">Сохранить</button>
       </form>
     </div>
+    <div class="popup popup_add" >
+      <form class="popup__container popup__container_add" id="acc-post" method="post">
+        <button class="popup__close-button" type="button" id="new_image_close"></button>    
+        <h2 class="popup__text">Новое место</h2>
+        <input class="popup__submit-name" placeholder="Название" id="sub_image-name">
+        <input class="popup__submit-dis" placeholder="Ссылка на картинку" id="sub_link">
+        <button type="submit" class="popup__save-button" id="add_image">Создать</button>
+      </form>
+    </div>
+    <template class="card">
+      <div class="element">
+          <img class="element__image" src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="Франция">
+          <button class="element__trash" type="button"></button>
+        <div class="element__dis">
+          <h2 class="element__dis-name">France</h2>
+          <button type="button" class="element__dis-like-button"></button>
+        </div>
+        <div class= "element__popup">
+          <div class= "element__popup-container">
+            <button type="button" class= "popup__close-button"></button>
+            <img class = "element__popup-image" src = "https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="Франция">
+            <p class = "element__popup-text">France</p>
+          </div>
+        </div>
+      </div>
+    </template>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/add.js"></script>
   </body>
 </html>
