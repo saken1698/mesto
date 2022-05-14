@@ -1,54 +1,49 @@
-
-let profileEditButton = document.querySelector('.profile__edit-button');
-let closeModalButton = document.querySelector('.popup__close-button');
-let inputName = document.querySelector('.popup__submit-name');
-let profileName = document.querySelector('.profile__info-name');
-let inputDiscription = document.querySelector('.popup__submit-dis');
-let profileDiscription = document.querySelector('.profile__info-discription');
-let profileInfo = document.querySelectorAll('.profile__info');
-let saveForm = document.querySelector('.popup__container');
-let addImagePopup = document.querySelector('.profile__add-button');
-let popUp=document.querySelector('.popup');
-let popUpAdd=document.querySelector('.popup_add');
-let likeButton = document.querySelectorAll('.element__dis-like-button');
-let closePopupAddImage = document.getElementById('new_image_close');
+const profileEditButton = document.querySelector('.profile__edit-button');
+const ModalCloseButton = document.querySelector('.popup__close-button');
+const inputName = document.querySelector('.popup__submit-name');
+const profileName = document.querySelector('.profile__info-name');
+const inputDiscription = document.querySelector('.popup__submit-dis');
+const profileDiscription = document.querySelector('.profile__info-discription');
+const formSave = document.querySelector('.popup__container');
+const imagePopupAdd = document.querySelector('.profile__add-button');
+const popUpProfile=document.querySelector('.popup');
+const popUpAdd=document.querySelector('.popup_add');
+const popupAddImageClose = document.getElementById('new_image_close');
+const popUpImageClose = document.getElementById('popup-image-close');
 
 
 
 function editProfile(){
-    popUp.classList.add('popup_active');
+    openPopup(popUpProfile);
     inputName.value = profileName.textContent;
     inputDiscription.value = profileDiscription.textContent;
-    
 };
 
-function closeModal(){
-    popUpAdd.classList.remove('popup_active');
-    popUp.classList.remove('popup_active');
+function closeModal(popup){
+    popup.classList.remove('popup_active');
+};
 
-}
+function openPopup(popup){
+    popup.classList.add('popup_active');
+};
 
 profileEditButton.addEventListener('click', editProfile);
-closeModalButton.addEventListener('click', closeModal);
+ModalCloseButton.addEventListener('click', function(evt){closeModal(popUpProfile)});
 
 
-function saveProfileChanges(evt){
+function handleProfileChanges(evt){
     evt.preventDefault();
     profileName.textContent = inputName.value;
     profileDiscription.textContent = inputDiscription.value;
 
-    closeModal(); 
+    closeModal(popUpProfile); 
 };
 
-saveForm.addEventListener('submit', saveProfileChanges);
+formSave.addEventListener('submit', handleProfileChanges);
 
-
-function addImage(){
-    popUpAdd.classList.add('popup_active');
-};
-
-addImagePopup.addEventListener('click', addImage);
-closePopupAddImage.addEventListener('click', closeModal);
+imagePopupAdd.addEventListener('click', function(evt){openPopup(popUpAdd)});
+popupAddImageClose.addEventListener('click', function(evt){closeModal(popUpAdd)});
+popUpImageClose.addEventListener('click', function(evt){closeModal(elementPopup);})
 
 
 

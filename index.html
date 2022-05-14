@@ -25,48 +25,6 @@
         <button class="profile__add-button" type="button"></button>
       </section>
       <section class="elements">
-        <!--<div class="element">
-          <img class="element__image" src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="Франция">
-          <div class="element__dis">
-            <h2 class="element__dis-name">France</h2>
-            <button type="button" class="element__dis-like-button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/elements/miami.jpg" alt="Майами">
-          <div class="element__dis">
-            <h2 class="element__dis-name">Maiami</h2>
-            <button type="button" class="element__dis-like-button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/elements/brazil..jpg" alt="Бразилия">
-          <div class="element__dis">
-            <h2 class="element__dis-name">Brazil</h2>
-            <button type="button" class="element__dis-like-button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/elements/canada.jpg" alt="Канада">
-          <div class="element__dis">
-            <h2 class="element__dis-name">Canada</h2>
-            <button type="button" class="element__dis-like-button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/elements/UK.jpg" alt="Англия">
-          <div class="element__dis">
-            <h2 class="element__dis-name">UK</h2>
-            <button type="button" class="element__dis-like-button"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="./images/elements/maldives.jpg" alt="Мальдивы">
-          <div class="element__dis">
-            <h2 class="element__dis-name">Maldives</h2>
-            <button type="button" class="element__dis-like-button"></button>
-          </div>
-        </div>-->
       </section>
     </main>
     <footer class="footer">
@@ -90,6 +48,13 @@
         <button type="submit" class="popup__save-button" id="add_image">Создать</button>
       </form>
     </div>
+    <div class= "popup popup_element">
+      <div class= "popup__container-element">
+        <button type="button" class= "popup__close-button" id="popup-image-close"></button>
+        <img class = "popup__image" src = "https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="Франция">
+        <p class = "popup__image-text">France</p>
+      </div>
+    </div>
     <template class="card">
       <div class="element">
           <img class="element__image" src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="Франция">
@@ -98,15 +63,9 @@
           <h2 class="element__dis-name">France</h2>
           <button type="button" class="element__dis-like-button"></button>
         </div>
-        <div class= "element__popup">
-          <div class= "element__popup-container">
-            <button type="button" class= "popup__close-button"></button>
-            <img class = "element__popup-image" src = "https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="Франция">
-            <p class = "element__popup-text">France</p>
-          </div>
-        </div>
       </div>
     </template>
+    <script src="./scripts/card.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/add.js"></script>
   </body>
