@@ -1,0 +1,7 @@
+.input-field{
+    margin: 0 auto 13px;
+    width: 100%;
+    max-width: 358px;
+    display: flex;
+    flex-direction: column;
+}

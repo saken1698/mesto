@@ -31,21 +31,33 @@
       <p class="footer__copyright">&#169;2022 Mesto Russia</p>
     </footer>
     <div class="popup">
-      <form class="popup__container" name="acc-info" method="post">
+      <form class="popup__container" name="acc-info" id="acc-info" method="post">
         <button class="popup__close-button" type="button"></button>    
         <h2 class="popup__text">Редактировать профиль</h2>
-        <input class="popup__submit-name" placeholder="Имя" name="sub_name">
-        <input class="popup__submit-dis" placeholder="О себе" name="sub_dis">
+        <label class="input-field">
+        <input class="popup__submit-name popup__input" placeholder="Имя" name="sub_name" id="sub_name" minlength="2" maxlength="40" required>
+        <span class="popup__submit-name-error form-error" id ='sub_name-error'>g</span>
+      </label>
+        <label class="input-field">
+        <input class="popup__submit-dis popup__input" placeholder="О себе" name="sub_dis" id="sub_dis" minlength="2" maxlength="200" required>
+        <span class="popup__submit-dis-error form-error" id="sub_dis-error">sdds</span>
+      </label>
         <button type="submit" class="popup__save-button">Сохранить</button>
       </form>
     </div>
     <div class="popup popup_add" >
-      <form class="popup__container popup__container_add" id="acc-post" method="post">
+      <form class="popup__container popup__container_add" id="acc-post" method="post" novalidate>
         <button class="popup__close-button" type="button" id="new_image_close"></button>    
         <h2 class="popup__text">Новое место</h2>
-        <input class="popup__submit-name" placeholder="Название" id="sub_image-name">
-        <input class="popup__submit-dis" placeholder="Ссылка на картинку" id="sub_link">
-        <button type="submit" class="popup__save-button" id="add_image">Создать</button>
+        <label class="input-field">
+        <input class="popup__submit-name popup__input" placeholder="Название" id="sub_image-name" minlength="2" maxlength="30" required>
+        <span class="popup__submit-dis-error form-error" id="sub_image-name-error">sdds</span>
+        </label>
+        <label class="input-field">
+        <input class="popup__submit-dis popup__input" placeholder="Ссылка на картинку" id="sub_link" type="url" required>
+        <span class="popup__submit-dis-error form-error" id="sub_link-error">sdds</span>
+        </label>
+        <button type="submit" class="popup__save-button popup__save-button_disabled" id="add_image" disabled>Создать</button>
       </form>
     </div>
     <div class= "popup popup_element">
@@ -68,5 +80,6 @@
     <script src="./scripts/card.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/add.js"></script>
+    <script src="./scripts/validation.js"></script>
   </body>
 </html>
