@@ -9,64 +9,66 @@ const config = {
 
 
 //Показать текст ошибки
-const showInputError = (formElement, inputElement, errorMessage) => {
+const showInputError = (inputElement, errorMessage, errorClass) => {
     const errorElement = document.getElementById(`${inputElement.id}-error`);
     errorElement.textContent = errorMessage;
-    errorElement.classList.add(config.errorClass);
+    errorElement.classList.add(errorClass);
   };
 //Скрыть текст ошибки
-  const hideInputError = (formElement, inputElement) => {
+  const hideInputError = (inputElement, errorClass) => {
     const errorElement = document.getElementById(`${inputElement.id}-error`);
-    errorElement.classList.remove(config.errorClass);
+    errorElement.classList.remove(errorClass);
     errorElement.textContent = '';
   };
 
-    const setEventListeners = (formElement) => {
-    const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
+    const setEventListeners = (formSelector, configSet) => {
+    const {inputSelector, submitButtonSelector, inactiveButtonClass, errorClass} = configSet;
+    const inputList = Array.from(formSelector.querySelectorAll(inputSelector));
     inputList.forEach((inputElement) => {
      inputElement.addEventListener('input', function () {
-       checkInputValidity(formElement, inputElement);
+       checkInputValidity(formSelector, inputElement, inputList, errorClass, submitButtonSelector, inactiveButtonClass);
      });
     });
   };
 //Проверить валидность поля ввода
- const checkInputValidity = (formElement, inputElement) => {
+ const checkInputValidity = (formSelector, inputElement, inputList, errorClass, submitButtonSelector, inactiveButtonClass) => {
    if (!inputElement.validity.valid) {
-     showInputError(formElement, inputElement, inputElement.validationMessage);
-     disableSaveButton(formElement);
+     showInputError(inputElement, inputElement.validationMessage, errorClass);
+     disableSaveButton(formSelector , submitButtonSelector, inactiveButtonClass);
 
    } else {
-      hideInputError(formElement, inputElement);
-      activateSaveButton(formElement);
+      hideInputError(inputElement, errorClass);
+      activateSaveButton(formSelector, submitButtonSelector, inactiveButtonClass);
    };
 
-   const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
+   
     if (inputList.every((input)=>{
       return input.validity.valid;
     })){
-        activateSaveButton(formElement);
+        activateSaveButton(formSelector, submitButtonSelector, inactiveButtonClass);
     } else {
-        disableSaveButton(formElement);
+        disableSaveButton(formSelector, submitButtonSelector, inactiveButtonClass);
     }
  };
 
 
 //Отключить кнопку
-function disableSaveButton(form){
-   const submitionButton = form.querySelector(config.submitButtonSelector);
-   submitionButton.classList.add(config.inactiveButtonClass);
+function disableSaveButton(formSelector, submitButtonSelector, inactiveButtonClass){
+   const submitionButton = formSelector.querySelector(submitButtonSelector);
+   submitionButton.classList.add(inactiveButtonClass);
    submitionButton.setAttribute('disabled', true);
 };
 //Активировать кнопку
-function activateSaveButton(form){
-    const submitionButton = form.querySelector(config.submitButtonSelector);
-    submitionButton.classList.remove(config.inactiveButtonClass);
+function activateSaveButton(formSelector, submitButtonSelector, inactiveButtonClass){
+    const submitionButton = formSelector.querySelector(submitButtonSelector);
+    submitionButton.classList.remove(inactiveButtonClass);
     submitionButton.removeAttribute('disabled');
 };
 
-function enableValidation ({name: value}) {
-    Array.from(document.querySelectorAll(config.formSelector)).forEach((evt)=>{
-        setEventListeners(evt);});
+function enableValidation (configValid) {
+    const {formSelector} = configValid;
+    Array.from(document.querySelectorAll(formSelector)).forEach((formSelector)=>{
+        setEventListeners(formSelector, configValid);});
 }
 
 enableValidation(config);

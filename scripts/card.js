@@ -31,20 +31,7 @@ function createCard(name, link) {
   cardImage.addEventListener('click', openImagePopup);
   return newCard;
 };
-//Создание первых карточек
-initialCards.forEach(({name, link}) => {
-  elements.append(createCard(name, link));
-});
-//Сохранить новую карточку и добавить
-function saveNewElement(evt){
-  evt.preventDefault();
-  elements.prepend(createCard(newCardName.value,newCardLink.value));
-  evt.target.reset();
-  closeModal(popUpAdd); 
-  disableSaveButton(popUpAdd);
-}
 
-safeAddedImage.addEventListener('submit', saveNewElement);
 //Функция для открытия попапа карточки
 function openImagePopup(evt){
   popupImage.src = evt.target.src;
