@@ -1,3 +1,6 @@
+import { initialCards, Card } from './classCard.js';
+import {config, FormValidation, newFormValidationImage, newFormValidationProfile} from './classValidation.js';
+
 const profileEditButton = document.querySelector('.profile__edit-button');
 const modalCloseButton = document.getElementById('profile-close-button');
 const inputName = document.querySelector('.popup__submit-name');
@@ -13,6 +16,11 @@ const popupAddImageClose = document.getElementById('new_image_close');
 const popUpImageClose = document.getElementById('popup-image-close');
 const submitButtonClass =  '.popup__save-button';
 const inactiveButtonClass =  'popup__save-button_disabled';
+const elementPopup = document.querySelector('.popup_element');
+const safeAddedImage = document.getElementById('acc-post');
+const newCardName =  document.getElementById('sub_image-name');
+const newCardLink =  document.getElementById('sub_link');
+const elements = document.querySelector('.elements');
 const keyESC = 'Escape';
 
 
@@ -50,7 +58,7 @@ popUpElement.addEventListener('mousedown', (evt) =>{
 //Открыть попап с сохраненными значениями
 function editProfile(){
     openPopup(popUpProfile);
-    activateSaveButton(popUpProfile, submitButtonClass, inactiveButtonClass);
+    newFormValidationProfile._activateSaveButton();
     inputName.value = profileName.textContent;
     inputDiscription.value = profileDiscription.textContent;
 };
@@ -83,9 +91,15 @@ function handleProfileChanges(evt){
 };
 
 function removeErrorAfterCloseModal (popup) {
-    Array.from(popup.querySelectorAll('.popup__input')).forEach((evt) => {
-        hideInputError(evt, config.errorClass);
-});
+//     Array.from(popup.querySelectorAll('.popup__input')).forEach((evt) => {
+//         hideInputError(evt, config.errorClass);
+// });
+
+newFormValidationImage._hideInputError(document.getElementById('sub_image-name'));
+newFormValidationImage._hideInputError(document.getElementById('sub_link'));
+newFormValidationProfile._hideInputError(document.getElementById('sub_dis'));
+newFormValidationProfile._hideInputError(document.getElementById('sub_name'));
+
 };
 
 formSaveProfile.addEventListener('submit', handleProfileChanges);
@@ -95,18 +109,23 @@ popupAddImageClose.addEventListener('click', function(evt){
     removeErrorAfterCloseModal(popUpAdd)});
 popUpImageClose.addEventListener('click', function(evt){closeModal(elementPopup);})
 
-//Создание первых карточек
-initialCards.forEach(({name, link}) => {
-    elements.append(createCard(name, link));
-  });
+// //Создание первых карточек
+// initialCards.forEach(({name, link}) => {
+//     elements.append(createCard(name, link));
+//   });
 
 //Сохранить новую карточку и добавить
 function saveNewElement(evt){
     evt.preventDefault();
-    elements.prepend(createCard(newCardName.value,newCardLink.value));
+    let cardInfo = {
+        name: newCardName.value,
+        link : newCardLink.value
+    }
+    
+    elements.prepend(new Card(cardInfo, '.card').createCard());
     evt.target.reset();
     closeModal(popUpAdd); 
-    disableSaveButton(popUpAdd, config.submitButtonSelector, config.inactiveButtonClass);
+    newFormValidationImage._disableSaveButton();
   }
   
   safeAddedImage.addEventListener('submit', saveNewElement);
