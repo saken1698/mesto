@@ -1,6 +1,7 @@
 import { Card } from "./Card.js";
 import { initialCards } from "./initialCards.js";
-import { config, FormValidation } from "./Validation.js";
+import { FormValidation } from "./Validation.js";
+import {config} from "./config.js"
 
 const profileEditButton = document.querySelector(".profile__edit-button");
 const modalCloseButton = document.getElementById("profile-close-button");
@@ -32,11 +33,6 @@ function closeByEsc(evt) {
   if (evt.key === keyEsc) {
     const openedPopup = document.querySelector(".popup_active");
     closeModal(openedPopup);
-    if (openedPopup.querySelector('.popup__container').id == 'acc-info'){
-      newFormValidationProfile.resetErrors();
-    } else {
-      newFormValidationImage.resetErrors();
-    }
   }
 }
 
@@ -50,12 +46,10 @@ function checkClickOnOverlay(evt) {
 
 popUpProfile.addEventListener("mousedown", (evt) => {
   checkClickOnOverlay(evt);
-  newFormValidationProfile.resetErrors();
 });
 
 popUpAdd.addEventListener("mousedown", (evt) => {
   checkClickOnOverlay(evt);
-  newFormValidationImage.resetErrors();
 });
 
 popUpElement.addEventListener("mousedown", (evt) => {
@@ -67,6 +61,7 @@ function editProfile() {
   inputName.value = profileName.textContent;
   inputDiscription.value = profileDiscription.textContent;
   newFormValidationProfile.activateSaveButton();
+  newFormValidationProfile.resetErrors();
   openPopup(popUpProfile);
 }
 
@@ -85,7 +80,6 @@ function openPopup(popup) {
 profileEditButton.addEventListener("click", editProfile);
 modalCloseButton.addEventListener("click", function (evt) {
   closeModal(popUpProfile);
-  newFormValidationProfile.resetErrors();
 });
 
 //Сохранение изменений профиля
@@ -94,17 +88,11 @@ function handleProfileChanges(evt) {
   profileName.textContent = inputName.value;
   profileDiscription.textContent = inputDiscription.value;
   closeModal(popUpProfile);
-  newFormValidationProfile.resetErrors();
-}
-
-//Функция удаления надписи ошибок после закрытия
-function removeErrorAfterCloseModal() {
-  newFormValidationImage.resetErrors();
-  newFormValidationProfile.resetErrors();
 }
 
 formSaveProfile.addEventListener("submit", handleProfileChanges);
 imagePopupAdd.addEventListener("click", function (evt) {
+  newFormValidationImage.resetErrors();
   openPopup(popUpAdd);
 });
 popupAddImageClose.addEventListener("click", function (evt) {
@@ -123,7 +111,7 @@ function saveNewElement(evt) {
     link: newCardLink.value,
   };
 
-  elements.prepend( createFinisedCard(cardInfo, ".card"));
+  elements.prepend( createFinishedCard(cardInfo, ".card"));
   evt.target.reset();
   closeModal(popUpAdd);
   newFormValidationImage.disableSaveButton();
